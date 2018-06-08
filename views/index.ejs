@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+  </head>
+  <body>
+  <h2>Register</h2>
+  <form action="/register" method="POST" enctype="application/x-www-form-urlencoded">
+      <div class="form-group">
+          <label for="username">Userrname</label>
+          <input type="text" class="form-control" id="username" name="username"  aria-describedby="emailHelp" placeholder="Enter name">
+      </div>
+      <div class="form-group">
+          <label for="useremail">Email</label>
+          <input type="text" class="form-control" id="useremail" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+      </div>
+      <div class="form-group">
+          <label for="userpassword">Password</label>
+          <input type="password" class="form-control" id="userpassword" name="password" placeholder="Password">
+      </div>
+      <div class="form-group">
+          <label for="userconfirmpassword">Confirm Password</label>
+          <input type="password" class="form-control" id="userconfirmpassword" name="confirmpassword" placeholder="Confirm Password">
+      </div>
+      <button type="submit" class="btn btn-primary" name="submit" value="Register">Submit</button>
+  </form>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  </body>
+</html>
