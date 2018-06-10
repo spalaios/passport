@@ -19,6 +19,7 @@ mongoose.connect('mongodb://localhost:27017/passport');
 var indexRouter = require('./routes/index');
 const loginRouter = require('./routes/login');
 const profileRouter = require('./routes/profile');
+const logoutRouter = require('./routes/logout');
 
 var app = express();
 
@@ -70,6 +71,7 @@ app.use(session({
   store : new MongoStore({mongooseConnection : mongoose.connection })
 }));
 
+//since passport is dependent on session so it should be placed after session middleware
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -78,6 +80,7 @@ app.use(passport.session());
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
 app.use('/profile', profileRouter);
+app.use('/logout', logoutRouter);
 
 //passport local strategy since we mentioned in our login post request and yes it is also below are routes
 passport.use(new LocalStrategy(
@@ -109,7 +112,8 @@ passport.use(new LocalStrategy(
           
         })
         .catch((error) => {
-          return done(null, false, {message : 'failed to fetch from  database'});
+          // return done(null, false, {message : 'failed to fetch from  database'});
+          return done(err);
         })
   }
 ));
